@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us" hidden>
+  <head>
+    <title>Consumer Portal Pagelet</title>
+    <meta charset="utf-8" />
+    <style>
+    html[hidden] {
+      display: none;
+      visibility: hidden;
+    }
+    html, body {
+      /* Prevent bars and clipping. */
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px;
+    }
+    body:after {
+      /* allow proper sizing of pagelets in sdk, even if they have float components */
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+    }
+    </style>
+    <script src="https://d3rc9bvtvjyh73.cloudfront.net/healthelife-sdk/healthelife_sdk.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+  <body style="padding: 10px;">
+    <div class="card-panel">
+      <h1>Launch Pagelet</h1>
+      <p>Enter pagelet URL to launch pagelet inside this frame.</p>
+      <input id="pagelet">
+      <button onclick="launchPagelet()">Open Pagelet</button>
+    </div>
+    <script type="text/javascript">
+      $HL.App.init({ acls: ['*'] });
+      
+      function launchPagelet() {	
+        window.location.href = document.getElementById('pagelet').value;	
+        //$HL.App.updateURL(document.getElementById('pagelet').value);
+      }
+    </script>
+  </body>
+</html>
